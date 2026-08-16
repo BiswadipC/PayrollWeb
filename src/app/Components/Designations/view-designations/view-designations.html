@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h2 class="text-center"><b>List Of Designations</b></h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <a [routerLink]="['/add-edit-designations/0']" routerLinkActive="active">Create New Designation</a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>IdNo</th>
+            <th>Designation Name</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (item of designations; track item.IdNo)
+          {
+            <tr>
+              <td>{{item.IdNo}}</td>
+              <td>{{item.Name}}</td>
+              <td>
+                <a [routerLink]="[`/add-edit-designations/${item.IdNo}`]">Edit</a>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
