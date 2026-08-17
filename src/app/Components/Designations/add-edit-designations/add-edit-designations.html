@@ -1,1 +1,15 @@
-<p>add-edit-designations works!</p>
+<div class="container">
+  <div class="row">
+    <h2 class="text-center"><b>Add/Edit Designation</b></h2>
+  </div>
+  <div class="row">
+    <input type="text" [(ngModel)]="IdNo" style="display: none;" />
+    <div class="col-6">
+      <label><b>Designation</b></label>
+      <input type="text" class="form-control" [(ngModel)]="Name" />
+    </div>
+    <div class="col-6">
+      <button type="button" class="btn btn-success" (click)="Save()">Save</button>
+    </div>
+  </div>
+</div>

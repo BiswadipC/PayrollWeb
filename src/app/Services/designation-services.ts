@@ -16,4 +16,16 @@ export class DesignationServices {
     this.path = environment.API_PATH + 'designations';
     return this.http.get<IDesignation[]>(this.path, {withCredentials: true});
   } // getDesignations...
+
+  getDesignationById(id: number) : Observable<IDesignation>
+  {
+    this.path = environment.API_PATH + `designations/${id}`;
+    return this.http.get<IDesignation>(this.path, {withCredentials: true});
+  } // getDesignationById...
+
+  saveDesignation(designation: IDesignation) : Observable<any>
+  {
+    this.path = environment.API_PATH + 'designations';
+    return this.http.post<any>(this.path, designation, {withCredentials: true});
+  } // saveDesignation...
 } // class...
