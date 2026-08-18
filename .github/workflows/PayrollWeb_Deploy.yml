@@ -11,7 +11,7 @@ permissions:
   contents: read
 
 env:
-  AZURE_WEBAPP_NAME: PayrollUI
+  AZURE_WEBAPP_NAME: PayrollWeb
   NODE_VERSION: '22.x'
 
 jobs:
