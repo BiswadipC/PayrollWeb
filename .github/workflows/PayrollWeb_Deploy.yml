@@ -1,3 +1,4 @@
+# name 
 name: Deploy Angular 19 to Azure App Service
 
 on:
