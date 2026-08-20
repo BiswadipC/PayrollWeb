@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <h2 class="text-center"><b>List Of Banks</b></h2>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <a [routerLink]="['/banks',0]">Add New Bank</a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>BankId</th>
+            <th>Bank Name</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (b of banks; track b.BankId)
+          {
+            <tr>
+              <td>{{b.BankId}}</td>
+              <td>{{b.BankName}}</td>
+              <td><a [routerLink]="['/banks', b.BankId]">Edit</a></td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
