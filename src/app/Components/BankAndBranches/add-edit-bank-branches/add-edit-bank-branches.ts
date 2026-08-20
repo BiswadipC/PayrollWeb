@@ -36,14 +36,47 @@ export class AddEditBankBranches {
     });
   } // constructor...
 
+  get getDetails()
+  {
+    return this.bankGroup.get('Branches') as FormArray;
+  } // getDetails...
+
   ResetBranch()
   {
-
+    this.branchGroup.patchValue({
+      'RecId': [-1],
+      'BranchId': [0],
+      'BranchCode': [''],
+      'BranchName': [''],
+      'IFSCCode': [''],
+      'Address': [''],
+      'PhoneNo': ['']
+    });
   } // ResetBranch...
 
   AddBranch()
   {
+    const recId = this.branchGroup.get('RecId')?.value;
+    const initialGroup = this.fb.group({
+      'RecId': [recId],
+      'BranchId': [this.branchGroup.get('BranchId')?.value],
+      'BranchCode': [this.branchGroup.get('BranchCode')?.value],
+      'BranchName': [this.branchGroup.get('BranchName')?.value],
+      'IFSCCode': [this.branchGroup.get('IFSCCode')?.value],
+      'Address': [this.branchGroup.get('Address')?.value],
+      'PhoneNo': [this.branchGroup.get('PhoneNo')?.value]
+    });
 
+    if(recId == -1)
+    {
+      (this.bankGroup.get('Branches') as FormArray).push(initialGroup);
+    }
+    else
+    {
+      (this.bankGroup.get('Branches') as FormArray).setControl(recId, initialGroup);
+    } // end if...
+
+    this.ResetBranch();
   } // AddBranch...
 
   Back()
@@ -53,6 +86,30 @@ export class AddEditBankBranches {
 
   Save()
   {
+    this.bank.BankId = this.bankGroup.get('BankId')?.value;
+    this.bank.BankName = this.bankGroup.get('BankName')?.value;
 
+    this.branches = [];
+    (this.bankGroup.get('Branches') as FormArray).controls.forEach(m => {
+      const branch: IBranch = {} as IBranch;
+      branch.BranchId = m.get('BranchId')?.value;
+      branch.BranchCode = m.get('BranchCode')?.value;
+      branch.BranchName = m.get('BranchName')?.value;
+      branch.IFSCCode = m.get('IFSCCode')?.value;
+      branch.Address = m.get('Address')?.value;
+      branch.PhoneNo = m.get('PhoneNo')?.value;
+      this.branches.push(branch);
+    });
+
+    this.bank.Branches = this.branches;
+
+    this.bs.SaveBank(this.bank).subscribe({
+      next: res => {
+        if(res.Message == "Success")
+        {
+          this.router.navigateByUrl('banks');
+        }
+      }
+    });
   } // Save...
 } // class...
