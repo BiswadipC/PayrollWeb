@@ -1,0 +1,108 @@
+/* Main card */
+.card {
+  background: #ffffff;
+  transition: all 0.3s ease;
+}
+
+/* Header icon */
+.icon-box {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+/* Section heading */
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.section-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: #e9f2ff;
+  color: #0d6efd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 19px;
+}
+
+/* Form labels */
+.form-label {
+  color: #343a40;
+  margin-bottom: 8px;
+}
+
+/* Inputs */
+.form-control,
+.input-group-text {
+  border-color: #dee2e6;
+}
+
+.form-control {
+  min-height: 48px;
+}
+
+textarea.form-control {
+  min-height: 120px;
+}
+
+.form-control:focus {
+  border-color: #86b7fe;
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.12);
+}
+
+/* Input group */
+.input-group-text {
+  min-width: 48px;
+  justify-content: center;
+}
+
+/* Buttons */
+.btn {
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  box-shadow: 0 4px 10px rgba(13, 110, 253, 0.2);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(13, 110, 253, 0.3);
+}
+
+.btn-light:hover {
+  background-color: #f1f3f5;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+  .card-body {
+    padding: 1.25rem !important;
+  }
+
+  .card-header {
+    padding: 1.25rem !important;
+  }
+
+  .d-flex.justify-content-end {
+    flex-direction: column-reverse;
+  }
+
+  .d-flex.justify-content-end .btn {
+    width: 100%;
+  }
+}

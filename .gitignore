@@ -1,0 +1,89 @@
+# Dependencies
+node_modules/
+
+# Angular build output
+dist/
+out-tsc/
+
+# Angular cache
+.angular/cache/
+
+# Testing / coverage
+coverage/
+
+# Environment files
+# Keep environment.ts in Git if it contains non-secret configuration.
+# Ignore production/local variants that may contain secrets.
+src/environments/environment.local.ts
+src/environments/environment.*.local.ts
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# IDEs and editors
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# Visual Studio Code
+.history/
+
+# JetBrains
+*.iml
+*.ipr
+*.iws
+
+# OS files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# TypeScript incremental build information
+*.tsbuildinfo
+
+# ESLint cache
+.eslintcache
+
+# npm
+.npm/
+
+# Package manager debug/cache files
+.pnpm-debug.log*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
+
+# Local Angular CLI files
+.angular/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
