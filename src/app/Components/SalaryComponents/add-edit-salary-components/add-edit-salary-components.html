@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h2 class="text-center"><b>Add/Edit Salary Components</b></h2>
+    </div>
+  </div>
+  <form [formGroup]="formGroup">
+    <div class="row">
+      <div class="col-6">
+        <label><b>Component Code</b></label>
+        <input type="text" class="form-control" formControlName="ComponentCode" />
+      </div>
+      <div class="col-6">
+        <label><b>Component Name</b></label>
+        <input type="text" class="form-control" formControlName="ComponentName" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4">
+        <label><b>Component Type</b></label>
+        <select class="form-control" formControlName="ComponentType">
+          <option value="">--- Select ---</option>
+          <option value="EARNING">EARNING</option>
+          <option value="DEDUCTION">DEDUCTION</option>
+          <option value="TAX">TAX</option>
+          <option value="EMPLOYER_CONTRIBUTION">EMPLOYER CONTRIBUTION</option>
+        </select>
+      </div>
+      <div class="col-4">
+        <label><b>Calculation Type</b></label>
+        <select class="form-control" formControlName="CalculationType">
+          <option value="">--- Select ---</option>
+          <option value="FIXED">FIXED</option>
+          <option value="PERCENTAGE">PERCENTAGE</option>
+          <option value="FORMULA">FORMULA</option>
+          <option value="ATTENDANCE_BASED">ATTENDANCE BASED</option>
+        </select>
+      </div>
+      <div class="col-4">
+        <label><b>Taxable?(Yes/No)</b></label>
+        <select class="form-control" formControlName="Taxable">
+          <option value="">--- Select ---</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <button type="submit" class="btn btn-success m-4">Save</button>
+        <button type="button" class="btn btn-secondary" (click)="Back()">Back To List</button>
+      </div>
+    </div>
+  </form>
+</div>

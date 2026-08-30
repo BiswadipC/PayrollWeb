@@ -1,0 +1,553 @@
+/* ================================
+   Page Container
+================================ */
+
+.component-page {
+  padding: 24px;
+  min-height: 100%;
+  background-color: #f5f7fb;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* ================================
+   Page Header
+================================ */
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.page-header h2 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.page-header p {
+  margin: 6px 0 0;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+
+/* ================================
+   Primary Button
+================================ */
+
+.btn-primary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 10px 18px;
+
+  border: none;
+  border-radius: 6px;
+
+  background-color: #2563eb;
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition: background-color 0.2s ease,
+              transform 0.15s ease,
+              box-shadow 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: #1d4ed8;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+.btn-primary .material-icons {
+  font-size: 20px;
+}
+
+
+/* ================================
+   Table Card
+================================ */
+
+.table-card {
+  background-color: #ffffff;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+
+  overflow: hidden;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+
+/* ================================
+   Table Toolbar
+================================ */
+
+.table-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 18px 20px;
+
+  border-bottom: 1px solid #e5e7eb;
+}
+
+
+/* ================================
+   Record Count
+================================ */
+
+.record-count {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.record-count .count {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+
+/* ================================
+   Search Box
+================================ */
+
+.search-box {
+  display: flex;
+  align-items: center;
+
+  width: 260px;
+  padding: 8px 12px;
+
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+
+  background-color: #ffffff;
+
+  transition: border-color 0.2s ease,
+              box-shadow 0.2s ease;
+}
+
+.search-box:focus-within {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.search-box .material-icons {
+  font-size: 20px;
+  color: #9ca3af;
+  margin-right: 8px;
+}
+
+.search-box input {
+  width: 100%;
+
+  border: none;
+  outline: none;
+
+  font-size: 14px;
+  color: #374151;
+
+  background: transparent;
+}
+
+.search-box input::placeholder {
+  color: #9ca3af;
+}
+
+
+/* ================================
+   Table Wrapper
+================================ */
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+
+/* ================================
+   Table
+================================ */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 850px;
+}
+
+
+/* ================================
+   Table Header
+================================ */
+
+thead {
+  background-color: #f9fafb;
+}
+
+th {
+  padding: 14px 18px;
+
+  text-align: left;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+
+  border-bottom: 1px solid #e5e7eb;
+
+  white-space: nowrap;
+}
+
+
+/* ================================
+   Table Body
+================================ */
+
+td {
+  padding: 16px 18px;
+
+  font-size: 14px;
+  color: #374151;
+
+  border-bottom: 1px solid #f0f1f3;
+
+  vertical-align: middle;
+}
+
+tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+
+/* ================================
+   ID Column
+================================ */
+
+.id-column {
+  width: 60px;
+  color: #6b7280;
+}
+
+
+/* ================================
+   Component Code
+================================ */
+
+.component-code {
+  display: inline-block;
+
+  padding: 4px 8px;
+
+  border-radius: 4px;
+
+  background-color: #f3f4f6;
+  color: #374151;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  font-family: "Courier New", monospace;
+}
+
+
+/* ================================
+   Component Name
+================================ */
+
+.component-name {
+  font-weight: 500;
+  color: #1f2937;
+}
+
+
+/* ================================
+   Component Type Badge
+================================ */
+
+.type-badge {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 5px 10px;
+
+  border-radius: 20px;
+
+  font-size: 12px;
+  font-weight: 500;
+}
+
+
+/* Earning */
+
+.type-badge.earning {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+
+/* Deduction */
+
+.type-badge.deduction {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+
+/* ================================
+   Calculation Type
+================================ */
+
+.calculation-type {
+  color: #4b5563;
+  font-size: 14px;
+}
+
+
+/* ================================
+   Taxable Badge
+================================ */
+
+.taxable-badge {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 7px;
+
+  padding: 5px 10px;
+
+  border-radius: 20px;
+
+  font-size: 12px;
+  font-weight: 500;
+}
+
+
+/* Status Dot */
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+}
+
+
+/* Taxable Yes */
+
+.taxable-badge.taxable-yes {
+  background-color: #eff6ff;
+  color: #1d4ed8;
+}
+
+.taxable-badge.taxable-yes .status-dot {
+  background-color: #2563eb;
+}
+
+
+/* Taxable No */
+
+.taxable-badge.taxable-no {
+  background-color: #f3f4f6;
+  color: #6b7280;
+}
+
+.taxable-badge.taxable-no .status-dot {
+  background-color: #9ca3af;
+}
+
+
+/* ================================
+   Action Column
+================================ */
+
+.action-column {
+  width: 100px;
+  text-align: center;
+}
+
+
+/* ================================
+   Icon Button
+================================ */
+
+.icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 34px;
+  height: 34px;
+
+  border: none;
+  border-radius: 6px;
+
+  background-color: transparent;
+
+  cursor: pointer;
+
+  transition: background-color 0.2s ease,
+              color 0.2s ease;
+}
+
+.icon-button .material-icons {
+  font-size: 19px;
+}
+
+
+/* Edit Button */
+
+.icon-button.edit {
+  color: #2563eb;
+}
+
+.icon-button.edit:hover {
+  background-color: #eff6ff;
+}
+
+
+/* ================================
+   Empty State
+================================ */
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 50px 20px;
+
+  text-align: center;
+}
+
+.empty-state .material-icons {
+  font-size: 48px;
+  color: #d1d5db;
+
+  margin-bottom: 12px;
+}
+
+.empty-state h3 {
+  margin: 0 0 6px;
+
+  font-size: 17px;
+  font-weight: 600;
+
+  color: #374151;
+}
+
+.empty-state p {
+  margin: 0;
+
+  font-size: 14px;
+  color: #9ca3af;
+}
+
+
+/* ================================
+   Table Footer
+================================ */
+
+.table-footer {
+  padding: 14px 20px;
+
+  border-top: 1px solid #e5e7eb;
+
+  font-size: 13px;
+  color: #6b7280;
+
+  background-color: #fafafa;
+}
+
+.table-footer strong {
+  color: #374151;
+}
+
+
+/* ================================
+   Responsive Design
+================================ */
+
+@media (max-width: 768px) {
+
+  .component-page {
+    padding: 16px;
+  }
+
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 16px;
+  }
+
+  .btn-primary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .table-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 14px;
+  }
+
+  .search-box {
+    width: auto;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  .page-header h2 {
+    font-size: 22px;
+  }
+
+  .component-page {
+    padding: 12px;
+  }
+
+  .table-toolbar {
+    padding: 14px;
+  }
+
+  .table-footer {
+    padding: 12px 14px;
+  }
+
+}
