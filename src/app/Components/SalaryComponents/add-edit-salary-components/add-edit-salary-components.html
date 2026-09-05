@@ -1,55 +1,212 @@
-<div class="container">
-  <div class="row">
-    <div class="col-12">
-      <h2 class="text-center"><b>Add/Edit Salary Components</b></h2>
+<div class="salary-component-page">
+  <div class="container py-4 py-md-5">
+
+```
+<!-- Page Header -->
+<div class="page-header mb-4">
+  <div>
+    <h2 class="page-title">Salary Component</h2>
+    <p class="page-subtitle">
+      Create or update salary components used in payroll processing.
+    </p>
+  </div>
+</div>
+
+<!-- Main Card -->
+<div class="salary-card">
+
+  <!-- Card Header -->
+  <div class="card-header-custom">
+    <div class="header-icon">
+      <i class="bi bi-cash-stack"></i>
+    </div>
+
+    <div>
+      <h4>Add / Edit Salary Component</h4>
+      <span>Enter the component details below</span>
     </div>
   </div>
-  <form [formGroup]="formGroup">
-    <div class="row">
-      <div class="col-6">
-        <label><b>Component Code</b></label>
-        <input type="text" class="form-control" formControlName="ComponentCode" />
+
+  <!-- Error Messages -->
+  @if (errors && errors.length > 0) {
+    <div class="error-container">
+
+      <div class="error-title">
+        <i class="bi bi-exclamation-triangle-fill"></i>
+        Please correct the following errors
       </div>
-      <div class="col-6">
-        <label><b>Component Name</b></label>
-        <input type="text" class="form-control" formControlName="ComponentName" />
-      </div>
+
+      <ul>
+        @for (err of errors; track err) {
+          <li>{{ err }}</li>
+        }
+      </ul>
+
     </div>
-    <div class="row">
-      <div class="col-4">
-        <label><b>Component Type</b></label>
-        <select class="form-control" formControlName="ComponentType">
-          <option value="">--- Select ---</option>
-          <option value="EARNING">EARNING</option>
-          <option value="DEDUCTION">DEDUCTION</option>
-          <option value="TAX">TAX</option>
-          <option value="EMPLOYER_CONTRIBUTION">EMPLOYER CONTRIBUTION</option>
-        </select>
+  }
+
+  <form [formGroup]="formGroup" (ngSubmit)="Save()">
+
+    <input
+      type="hidden"
+      formControlName="ComponentId"
+    />
+
+    <div class="form-body">
+
+      <!-- Basic Information -->
+      <div class="section-title">
+        <i class="bi bi-info-circle"></i>
+        Basic Information
       </div>
-      <div class="col-4">
-        <label><b>Calculation Type</b></label>
-        <select class="form-control" formControlName="CalculationType">
-          <option value="">--- Select ---</option>
-          <option value="FIXED">FIXED</option>
-          <option value="PERCENTAGE">PERCENTAGE</option>
-          <option value="FORMULA">FORMULA</option>
-          <option value="ATTENDANCE_BASED">ATTENDANCE BASED</option>
-        </select>
+
+      <div class="row g-4">
+
+        <!-- Component Code -->
+        <div class="col-md-6">
+
+          <label class="form-label">
+            Component Code
+            <span class="required">*</span>
+          </label>
+
+          <input
+            type="text"
+            class="form-control modern-input"
+            formControlName="ComponentCode"
+            placeholder="Enter component code"
+          />
+
+        </div>
+
+
+        <!-- Component Name -->
+        <div class="col-md-6">
+
+          <label class="form-label">
+            Component Name
+            <span class="required">*</span>
+          </label>
+
+          <input
+            type="text"
+            class="form-control modern-input"
+            formControlName="ComponentName"
+            placeholder="Enter component name"
+          />
+
+        </div>
+
       </div>
-      <div class="col-4">
-        <label><b>Taxable?(Yes/No)</b></label>
-        <select class="form-control" formControlName="Taxable">
-          <option value="">--- Select ---</option>
-          <option value="Yes">Yes</option>
-          <option value="No">No</option>
-        </select>
+
+
+      <!-- Configuration -->
+      <div class="section-title mt-5">
+        <i class="bi bi-gear"></i>
+        Component Configuration
       </div>
+
+      <div class="row g-4">
+
+        <!-- Component Type -->
+        <div class="col-md-4">
+
+          <label class="form-label">
+            Component Type
+            <span class="required">*</span>
+          </label>
+
+          <select
+            class="form-select modern-input"
+            formControlName="ComponentType"
+          >
+            <option value="">--- Select Component Type ---</option>
+            <option value="EARNING">EARNING</option>
+            <option value="DEDUCTION">DEDUCTION</option>
+            <option value="TAX">TAX</option>
+            <option value="EMPLOYER_CONTRIBUTION">
+              EMPLOYER CONTRIBUTION
+            </option>
+          </select>
+
+        </div>
+
+
+        <!-- Calculation Type -->
+        <div class="col-md-4">
+
+          <label class="form-label">
+            Calculation Type
+            <span class="required">*</span>
+          </label>
+
+          <select
+            class="form-select modern-input"
+            formControlName="CalculationType"
+          >
+            <option value="">--- Select Calculation Type ---</option>
+            <option value="FIXED">FIXED</option>
+            <option value="PERCENTAGE">PERCENTAGE</option>
+            <option value="FORMULA">FORMULA</option>
+            <option value="ATTENDANCE_BASED">
+              ATTENDANCE BASED
+            </option>
+          </select>
+
+        </div>
+
+
+        <!-- Taxable -->
+        <div class="col-md-4">
+
+          <label class="form-label">
+            Taxable?
+            <span class="required">*</span>
+          </label>
+
+          <select
+            class="form-select modern-input"
+            formControlName="Taxable"
+          >
+            <option value="">--- Select ---</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+
+        </div>
+
+      </div>
+
     </div>
-    <div class="row">
-      <div class="col-6">
-        <button type="submit" class="btn btn-success m-4">Save</button>
-        <button type="button" class="btn btn-secondary" (click)="Back()">Back To List</button>
-      </div>
+
+
+    <!-- Footer Buttons -->
+    <div class="card-footer-custom">
+
+      <button
+        type="button"
+        class="btn btn-back"
+        (click)="Back()"
+      >
+        <i class="bi bi-arrow-left"></i>
+        Back to List
+      </button>
+
+
+      <button
+        type="submit"
+        class="btn btn-save"
+      >
+        <i class="bi bi-check-circle"></i>
+        Save Component
+      </button>
+
     </div>
+
   </form>
+
+</div>
+```
+
+  </div>
 </div>

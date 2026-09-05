@@ -8,7 +8,7 @@
     </div>
 
     <button class="btn-primary" (click)="AddNewcomponent()">
-      <span class="material-icons">Add New Component</span>
+      <span class="btn btn-info">Add New Component</span>
     </button>
   </div>
 
@@ -18,13 +18,13 @@
     <!-- Table Header -->
     <div class="table-toolbar">
       <div class="record-count">
-        <span class="count">{{ components.length }}</span>
+        <span class="count">{{ filteredComponents.length }}</span>
         <span>Components</span>
       </div>
 
       <div class="search-box">
         <span class="material-icons">search</span>
-        <input type="text" placeholder="Search components..." [(ngModel)]="searchText" />
+        <input type="text" placeholder="Search components..." [(ngModel)]="searchText" (ngModelChange)="currentPage = 1" />
       </div>
     </div>
 
@@ -46,7 +46,7 @@
         <tbody>
 
           <tr
-            *ngFor="let component of components; let i = index"
+            *ngFor="let component of paginatedComponents; let i = index"
           >
 
             <td class="id-column">
@@ -108,7 +108,7 @@
           </tr>
 
           <!-- Empty State -->
-          <tr *ngIf="components.length === 0">
+          <tr *ngIf="filteredComponents.length === 0">
             <td colspan="7">
               <div class="empty-state">
                 <h3>No components found</h3>
@@ -123,8 +123,95 @@
 
     <!-- Table Footer -->
     <div class="table-footer">
-      Showing <strong>{{ components.length }}</strong> components
+
+  <!-- Showing Records -->
+  <div class="pagination-info">
+
+    Showing
+
+    <strong>
+      {{ filteredComponents.length === 0
+          ? 0
+          : (currentPage - 1) * pageSize + 1 }}
+    </strong>
+
+    to
+
+    <strong>
+      {{
+        currentPage * pageSize > filteredComponents.length
+          ? filteredComponents.length
+          : currentPage * pageSize
+      }}
+    </strong>
+
+    of
+
+    <strong>{{ filteredComponents.length }}</strong>
+
+    components
+
+  </div>
+
+
+  <!-- Pagination Controls -->
+  <div class="pagination-container">
+
+    <!-- Page Size -->
+
+    <div class="page-size">
+
+      <span>Rows per page</span>
+
+      <select
+        [(ngModel)]="pageSize"
+        (change)="changePageSize()"
+      >
+        <option [ngValue]="5">5</option>
+        <option [ngValue]="10">10</option>
+        <option [ngValue]="20">20</option>
+        <option [ngValue]="50">50</option>
+      </select>
+
     </div>
+
+
+    <!-- Previous -->
+
+    <button
+      class="pagination-button"
+      (click)="previousPage()"
+      [disabled]="currentPage === 1"
+    >
+      ‹
+    </button>
+
+
+    <!-- Page Numbers -->
+
+    <button
+      *ngFor="let page of [].constructor(totalPages); let i = index"
+      class="pagination-button page-number"
+      [class.active]="currentPage === i + 1"
+      (click)="changePage(i + 1)"
+    >
+      {{ i + 1 }}
+    </button>
+
+
+    <!-- Next -->
+
+    <button
+      class="pagination-button"
+      (click)="nextPage()"
+      [disabled]="currentPage === totalPages"
+    >
+      ›
+    </button>
+
+  </div>
+
+</div>
 
   </div>
 

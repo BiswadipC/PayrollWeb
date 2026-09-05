@@ -1,11 +1,11 @@
 import { ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
-import { UserService } from '../../Services/user-service';
 import { FormsModule } from '@angular/forms';
 import { IAuthenticateUser } from '../../ClassesAndInterfaces/IAuthenticateUser';
 import { CommonModule } from '@angular/common';
 import { CompanyService } from '../../Services/company-service';
 import { ICompany } from '../../ClassesAndInterfaces/ICompany';
 import { Router } from '@angular/router';
+import { AuthService } from '../../Services/auth-service';
 
 @Component({
   selector: 'app-login-user',
@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
   styleUrl: './login-user.css',
 })
 export class LoginUser implements OnInit {
-  constructor(private us: UserService, private cdr: ChangeDetectorRef, private router: Router){}
+  constructor(private us: AuthService, private cdr: ChangeDetectorRef, private router: Router){}
 
   username: string ='';
   password: string = '';
@@ -114,6 +114,11 @@ export class LoginUser implements OnInit {
         next: res => {
           if(res.Message === "Success")
           {
+            sessionStorage.setItem('UserName', this.username);
+            sessionStorage.setItem('CompanyId', this.companyId);
+            sessionStorage.setItem('DateFrom', dateFrom);
+            sessionStorage.setItem('DateTo', dateTo);
+
             this.router.navigateByUrl('dashboard');
           }
         },
